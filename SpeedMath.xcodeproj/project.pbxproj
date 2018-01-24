@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		149017CD7104EE356FFD929F /* libPods-SpeedMath.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A96EDFE3611035DB61AC3085 /* libPods-SpeedMath.a */; };
 		7662EDD62015DCE60082AA57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7662EDD52015DCE60082AA57 /* AppDelegate.m */; };
 		7662EDD92015DCE60082AA57 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7662EDD82015DCE60082AA57 /* ViewController.m */; };
 		7662EDDC2015DCE60082AA57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7662EDDA2015DCE60082AA57 /* Main.storyboard */; };
 		7662EDDE2015DCE60082AA57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7662EDDD2015DCE60082AA57 /* Assets.xcassets */; };
 		7662EDE12015DCE60082AA57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7662EDDF2015DCE60082AA57 /* LaunchScreen.storyboard */; };
 		7662EDE42015DCE60082AA57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7662EDE32015DCE60082AA57 /* main.m */; };
+		7662EDEC2015E4490082AA57 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7662EDEB2015E4490082AA57 /* GameViewController.m */; };
+		7662EDEF2015F1310082AA57 /* GridTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7662EDEE2015F1310082AA57 /* GridTile.m */; };
+		7662EDF2201717080082AA57 /* ExpressionParser.c in Sources */ = {isa = PBXBuildFile; fileRef = 7662EDF1201717080082AA57 /* ExpressionParser.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50AD10146C644A2537B28DA0 /* Pods-SpeedMath.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeedMath.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpeedMath/Pods-SpeedMath.release.xcconfig"; sourceTree = "<group>"; };
 		7662EDD12015DCE60082AA57 /* SpeedMath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedMath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7662EDD42015DCE60082AA57 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7662EDD52015DCE60082AA57 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +31,14 @@
 		7662EDE02015DCE60082AA57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7662EDE22015DCE60082AA57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7662EDE32015DCE60082AA57 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7662EDEA2015E4490082AA57 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		7662EDEB2015E4490082AA57 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		7662EDED2015F1310082AA57 /* GridTile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GridTile.h; sourceTree = "<group>"; };
+		7662EDEE2015F1310082AA57 /* GridTile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridTile.m; sourceTree = "<group>"; };
+		7662EDF0201717080082AA57 /* ExpressionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpressionParser.h; sourceTree = "<group>"; };
+		7662EDF1201717080082AA57 /* ExpressionParser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ExpressionParser.c; sourceTree = "<group>"; };
+		96DB4BB461B4333C78ACEBB6 /* Pods-SpeedMath.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeedMath.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeedMath/Pods-SpeedMath.debug.xcconfig"; sourceTree = "<group>"; };
+		A96EDFE3611035DB61AC3085 /* libPods-SpeedMath.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpeedMath.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				149017CD7104EE356FFD929F /* libPods-SpeedMath.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +58,8 @@
 			children = (
 				7662EDD32015DCE60082AA57 /* SpeedMath */,
 				7662EDD22015DCE60082AA57 /* Products */,
+				AD91F3038113E44512C2D3EF /* Pods */,
+				9A18BEE5C812AE9DCDFDACDA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,12 +79,35 @@
 				7662EDD72015DCE60082AA57 /* ViewController.h */,
 				7662EDD82015DCE60082AA57 /* ViewController.m */,
 				7662EDDA2015DCE60082AA57 /* Main.storyboard */,
+				7662EDED2015F1310082AA57 /* GridTile.h */,
+				7662EDEE2015F1310082AA57 /* GridTile.m */,
+				7662EDEA2015E4490082AA57 /* GameViewController.h */,
+				7662EDEB2015E4490082AA57 /* GameViewController.m */,
+				7662EDF1201717080082AA57 /* ExpressionParser.c */,
+				7662EDF0201717080082AA57 /* ExpressionParser.h */,
 				7662EDDD2015DCE60082AA57 /* Assets.xcassets */,
 				7662EDDF2015DCE60082AA57 /* LaunchScreen.storyboard */,
 				7662EDE22015DCE60082AA57 /* Info.plist */,
 				7662EDE32015DCE60082AA57 /* main.m */,
 			);
 			path = SpeedMath;
+			sourceTree = "<group>";
+		};
+		9A18BEE5C812AE9DCDFDACDA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A96EDFE3611035DB61AC3085 /* libPods-SpeedMath.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD91F3038113E44512C2D3EF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				96DB4BB461B4333C78ACEBB6 /* Pods-SpeedMath.debug.xcconfig */,
+				50AD10146C644A2537B28DA0 /* Pods-SpeedMath.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,9 +117,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7662EDE72015DCE60082AA57 /* Build configuration list for PBXNativeTarget "SpeedMath" */;
 			buildPhases = (
+				6A8F967AC250933AB2D482AA /* [CP] Check Pods Manifest.lock */,
 				7662EDCD2015DCE60082AA57 /* Sources */,
 				7662EDCE2015DCE60082AA57 /* Frameworks */,
 				7662EDCF2015DCE60082AA57 /* Resources */,
+				94CBBE31DA7F7BB64F534D70 /* [CP] Embed Pods Frameworks */,
+				DDD9B39307F45452418DA075 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -137,13 +179,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6A8F967AC250933AB2D482AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpeedMath-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94CBBE31DA7F7BB64F534D70 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpeedMath/Pods-SpeedMath-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDD9B39307F45452418DA075 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpeedMath/Pods-SpeedMath-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7662EDCD2015DCE60082AA57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7662EDEC2015E4490082AA57 /* GameViewController.m in Sources */,
 				7662EDD92015DCE60082AA57 /* ViewController.m in Sources */,
+				7662EDF2201717080082AA57 /* ExpressionParser.c in Sources */,
 				7662EDE42015DCE60082AA57 /* main.m in Sources */,
+				7662EDEF2015F1310082AA57 /* GridTile.m in Sources */,
 				7662EDD62015DCE60082AA57 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +372,7 @@
 		};
 		7662EDE82015DCE60082AA57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96DB4BB461B4333C78ACEBB6 /* Pods-SpeedMath.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -290,6 +387,7 @@
 		};
 		7662EDE92015DCE60082AA57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50AD10146C644A2537B28DA0 /* Pods-SpeedMath.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

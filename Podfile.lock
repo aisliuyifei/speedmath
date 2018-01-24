@@ -1,0 +1,18 @@
+PODS:
+  - Google-Mobile-Ads-SDK (7.27.0)
+  - Toast (4.0.0)
+  - UMengAnalytics (4.2.4)
+
+DEPENDENCIES:
+  - Google-Mobile-Ads-SDK
+  - Toast
+  - UMengAnalytics
+
+SPEC CHECKSUMS:
+  Google-Mobile-Ads-SDK: 83f7f890e638ce8f1debd440ea363338c9f6be3b
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  UMengAnalytics: ef8d45f94c0e5771dc364cf6a5731d9d3b101da2
+
+PODFILE CHECKSUM: 1a31d3bcf6caaa68799abd06daf3841cc9d5c961
+
+COCOAPODS: 1.4.0

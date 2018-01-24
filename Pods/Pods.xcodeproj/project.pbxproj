@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2BE9E3475D0E8590C34D756470AEEBD4 /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = 35DE5ED0C4D1689FC7DE6B5BCFA5145A /* UIView+Toast.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5D9D62CCA0432E0970A04544FEA43559 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2770B482BFE91273C8560623F1422C /* QuartzCore.framework */; };
+		702CABABE88C9443F06E1133C020A26C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F9A0E952988935C32EDDB1429D7133 /* Foundation.framework */; };
+		8E66D191AEAF9F55A7AFEF823613927A /* Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = B4C4D7D953257C89CCFF7CEEFAFAB0A6 /* Toast.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		95BCF73233C3CB7F052B0BD7D8D42996 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEBD3B942C7C67BEAE456B644690AD7 /* UIView+Toast.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		DF969B2A8DDB91198CA07C43A57E029F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54F9A0E952988935C32EDDB1429D7133 /* Foundation.framework */; };
+		E4C625C5BB0049B646CB6FC113DE96D9 /* Toast-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC88DED8327200EA7CE5CE2BB0100A3 /* Toast-dummy.m */; };
+		FE7C6C332140FE2AC3C825E509EB6FFE /* Pods-SpeedMath-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AAACD5A287F2E6B4E1475933B96CE5 /* Pods-SpeedMath-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		19002954C7AAA05ACE76DF35606562DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1BC602AB44A8392A53CFBD951ADF0F2;
+			remoteInfo = Toast;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1879471E08780284D1A873CD31DF6072 /* Pods-SpeedMath-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SpeedMath-acknowledgements.markdown"; sourceTree = "<group>"; };
+		18E7F79D8B04E7A3C733BE0D2DEC468C /* Pods-SpeedMath.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SpeedMath.release.xcconfig"; sourceTree = "<group>"; };
+		1DC3BF6A1C296A6BB07CF002F0124730 /* Pods-SpeedMath-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SpeedMath-acknowledgements.plist"; sourceTree = "<group>"; };
+		2FC6097D33941D51E29D5610F9CE45B1 /* Pods-SpeedMath.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SpeedMath.debug.xcconfig"; sourceTree = "<group>"; };
+		35DE5ED0C4D1689FC7DE6B5BCFA5145A /* UIView+Toast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "Toast/UIView+Toast.h"; sourceTree = "<group>"; };
+		3FB5165F89C12742295F35400458AE06 /* Toast-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toast-prefix.pch"; sourceTree = "<group>"; };
+		46BBD7C77C0F8091075BA45DC3404516 /* libToast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libToast.a; path = libToast.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CEBD3B942C7C67BEAE456B644690AD7 /* UIView+Toast.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Toast/UIView+Toast.m"; sourceTree = "<group>"; };
+		540E6E085F1C1FFF24B0D8D86171674F /* Pods-SpeedMath-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SpeedMath-resources.sh"; sourceTree = "<group>"; };
+		54F9A0E952988935C32EDDB1429D7133 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B4C4D7D953257C89CCFF7CEEFAFAB0A6 /* Toast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Toast.h; path = "Toast-Framework/Toast.h"; sourceTree = "<group>"; };
+		CCC292B3BEE4405867D06BD68CEF8104 /* Toast.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Toast.xcconfig; sourceTree = "<group>"; };
+		D35ED525D3300DFAD4A2A5D9E95A0EBF /* Pods-SpeedMath-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SpeedMath-frameworks.sh"; sourceTree = "<group>"; };
+		D463C79F635946B0C44BEA724054AA79 /* libPods-SpeedMath.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-SpeedMath.a"; path = "libPods-SpeedMath.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9AAACD5A287F2E6B4E1475933B96CE5 /* Pods-SpeedMath-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SpeedMath-dummy.m"; sourceTree = "<group>"; };
+		DF408754452085538274E311633DBE17 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = umsdk_IOS_analyics_idfa_v4.2.4/UMMobClick.framework; sourceTree = "<group>"; };
+		F4E0EF5E0437A8F96DD29793522038EE /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Frameworks/frameworks/GoogleMobileAds.framework; sourceTree = "<group>"; };
+		FAC88DED8327200EA7CE5CE2BB0100A3 /* Toast-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Toast-dummy.m"; sourceTree = "<group>"; };
+		FC2770B482BFE91273C8560623F1422C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F336179ECE31254DD69D453935954E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF969B2A8DDB91198CA07C43A57E029F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		25C2E515594FA85115DED66D6D8D73E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				702CABABE88C9443F06E1133C020A26C /* Foundation.framework in Frameworks */,
+				5D9D62CCA0432E0970A04544FEA43559 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		25E2A67A134A4B1B35C731252C3EAA1C /* Google-Mobile-Ads-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				F4E68CDC430E074D5E053F4AA7EB3F19 /* Frameworks */,
+			);
+			name = "Google-Mobile-Ads-SDK";
+			path = "Google-Mobile-Ads-SDK";
+			sourceTree = "<group>";
+		};
+		311DCCEC3149CAFC6FAB02C5F90108CA /* UMengAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				3A15F7EF42655C4D5D716F6B98F6E588 /* Frameworks */,
+			);
+			name = UMengAnalytics;
+			path = UMengAnalytics;
+			sourceTree = "<group>";
+		};
+		3A15F7EF42655C4D5D716F6B98F6E588 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF408754452085538274E311633DBE17 /* UMMobClick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C12232947CFF6134481C6D02B3EC51C /* Pods-SpeedMath */ = {
+			isa = PBXGroup;
+			children = (
+				1879471E08780284D1A873CD31DF6072 /* Pods-SpeedMath-acknowledgements.markdown */,
+				1DC3BF6A1C296A6BB07CF002F0124730 /* Pods-SpeedMath-acknowledgements.plist */,
+				D9AAACD5A287F2E6B4E1475933B96CE5 /* Pods-SpeedMath-dummy.m */,
+				D35ED525D3300DFAD4A2A5D9E95A0EBF /* Pods-SpeedMath-frameworks.sh */,
+				540E6E085F1C1FFF24B0D8D86171674F /* Pods-SpeedMath-resources.sh */,
+				2FC6097D33941D51E29D5610F9CE45B1 /* Pods-SpeedMath.debug.xcconfig */,
+				18E7F79D8B04E7A3C733BE0D2DEC468C /* Pods-SpeedMath.release.xcconfig */,
+			);
+			name = "Pods-SpeedMath";
+			path = "Target Support Files/Pods-SpeedMath";
+			sourceTree = "<group>";
+		};
+		3EE2DEF29FDF8D1D917DED2C9130F597 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				B4C4D7D953257C89CCFF7CEEFAFAB0A6 /* Toast.h */,
+				35DE5ED0C4D1689FC7DE6B5BCFA5145A /* UIView+Toast.h */,
+				4CEBD3B942C7C67BEAE456B644690AD7 /* UIView+Toast.m */,
+				E55FC44B7B33F674744EC01E7352D4E6 /* Support Files */,
+			);
+			name = Toast;
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				978007DCB56F415BE390E0F949D4D4E5 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7AD9F61790D14707814799208DA90193 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25E2A67A134A4B1B35C731252C3EAA1C /* Google-Mobile-Ads-SDK */,
+				3EE2DEF29FDF8D1D917DED2C9130F597 /* Toast */,
+				311DCCEC3149CAFC6FAB02C5F90108CA /* UMengAnalytics */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				7AD9F61790D14707814799208DA90193 /* Pods */,
+				FA71DC539282FF4C31C05762A884192C /* Products */,
+				AD5346D8BDDAB915D04605AC2C0597BA /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		978007DCB56F415BE390E0F949D4D4E5 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				54F9A0E952988935C32EDDB1429D7133 /* Foundation.framework */,
+				FC2770B482BFE91273C8560623F1422C /* QuartzCore.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		AD5346D8BDDAB915D04605AC2C0597BA /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3C12232947CFF6134481C6D02B3EC51C /* Pods-SpeedMath */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E55FC44B7B33F674744EC01E7352D4E6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CCC292B3BEE4405867D06BD68CEF8104 /* Toast.xcconfig */,
+				FAC88DED8327200EA7CE5CE2BB0100A3 /* Toast-dummy.m */,
+				3FB5165F89C12742295F35400458AE06 /* Toast-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Toast";
+			sourceTree = "<group>";
+		};
+		F4E68CDC430E074D5E053F4AA7EB3F19 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4E0EF5E0437A8F96DD29793522038EE /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA71DC539282FF4C31C05762A884192C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D463C79F635946B0C44BEA724054AA79 /* libPods-SpeedMath.a */,
+				46BBD7C77C0F8091075BA45DC3404516 /* libToast.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F74EC9D029594802B395F360E8EC5913 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E66D191AEAF9F55A7AFEF823613927A /* Toast.h in Headers */,
+				2BE9E3475D0E8590C34D756470AEEBD4 /* UIView+Toast.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8691C7C6F801967696886B9C430B25EE /* Pods-SpeedMath */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A91E905DFC7F558D53B2E0169BAD3C5 /* Build configuration list for PBXNativeTarget "Pods-SpeedMath" */;
+			buildPhases = (
+				7E70E3DC4DE64DF6B92E411E6AFCC45C /* Sources */,
+				1F336179ECE31254DD69D453935954E5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3405365787FBAE2843FDA20CE5DC3EB4 /* PBXTargetDependency */,
+			);
+			name = "Pods-SpeedMath";
+			productName = "Pods-SpeedMath";
+			productReference = D463C79F635946B0C44BEA724054AA79 /* libPods-SpeedMath.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E1BC602AB44A8392A53CFBD951ADF0F2 /* Toast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0F7D509A59D15C5D8F3E8679AAFFF361 /* Build configuration list for PBXNativeTarget "Toast" */;
+			buildPhases = (
+				3C653DE8CCA097C651EB39225185C04F /* Sources */,
+				25C2E515594FA85115DED66D6D8D73E6 /* Frameworks */,
+				F74EC9D029594802B395F360E8EC5913 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Toast;
+			productName = Toast;
+			productReference = 46BBD7C77C0F8091075BA45DC3404516 /* libToast.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = FA71DC539282FF4C31C05762A884192C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8691C7C6F801967696886B9C430B25EE /* Pods-SpeedMath */,
+				E1BC602AB44A8392A53CFBD951ADF0F2 /* Toast */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3C653DE8CCA097C651EB39225185C04F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4C625C5BB0049B646CB6FC113DE96D9 /* Toast-dummy.m in Sources */,
+				95BCF73233C3CB7F052B0BD7D8D42996 /* UIView+Toast.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E70E3DC4DE64DF6B92E411E6AFCC45C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE7C6C332140FE2AC3C825E509EB6FFE /* Pods-SpeedMath-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3405365787FBAE2843FDA20CE5DC3EB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Toast;
+			target = E1BC602AB44A8392A53CFBD951ADF0F2 /* Toast */;
+			targetProxy = 19002954C7AAA05ACE76DF35606562DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1699FC861E7E2B578747F6515BE21F04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FC6097D33941D51E29D5610F9CE45B1 /* Pods-SpeedMath.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		39C5BC78A31CDE101068C530CAC7FA0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		418C53B18E0772949CBA6F6552845978 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18E7F79D8B04E7A3C733BE0D2DEC468C /* Pods-SpeedMath.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		44CF1CAFFBEB81861B6E22B512A04DAD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCC292B3BEE4405867D06BD68CEF8104 /* Toast.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Toast/Toast-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7F2B0D5E7F5BD966A4CAFDD88DEC9454 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCC292B3BEE4405867D06BD68CEF8104 /* Toast.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Toast/Toast-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		89C8BB24E37B25BAEEB8FBA01EE05DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0F7D509A59D15C5D8F3E8679AAFFF361 /* Build configuration list for PBXNativeTarget "Toast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44CF1CAFFBEB81861B6E22B512A04DAD /* Debug */,
+				7F2B0D5E7F5BD966A4CAFDD88DEC9454 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39C5BC78A31CDE101068C530CAC7FA0F /* Debug */,
+				89C8BB24E37B25BAEEB8FBA01EE05DAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A91E905DFC7F558D53B2E0169BAD3C5 /* Build configuration list for PBXNativeTarget "Pods-SpeedMath" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1699FC861E7E2B578747F6515BE21F04 /* Debug */,
+				418C53B18E0772949CBA6F6552845978 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
