@@ -33,8 +33,10 @@
         assert([digits containsObject:title]);
     }else{
         assert([cals containsObject:title]);
-    }
+    }    
     str = title;
+    [_labelContent setText:str];
+
 }
 -(NSString *)str{
     return str;
@@ -69,6 +71,12 @@
 
 + (int)getTagForX:(int)x andY:(int)y{
     return x*10+y;
+}
++ (int)getXForTag:(int)tag{
+    return tag/10;
+}
++ (int)getYForTag:(int)tag{
+    return tag%10;
 }
 
 -(void)willMoveToSuperview:(UIView *)newSuperview{

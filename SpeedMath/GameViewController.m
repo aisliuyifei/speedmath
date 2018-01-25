@@ -8,6 +8,7 @@
 
 #import "GameViewController.h"
 #import "GridTile.h"
+#import "BoardUtils.h"
 
 @interface GameViewController ()
 
@@ -28,27 +29,36 @@
         for (int j=0; j<3; j++) {
             GridTile *tile = [[GridTile alloc] initWithSize:size x:i y:j];
             [tile setFrame:CGRectMake(x+i*(size-2),y+j*(size-2), size, size)];
-            if ((i+j)%2==0) {
-                [tile setStr:[NSString stringWithFormat:@"%d",(arc4random()%9 )+1]];
-            }else{
-                [tile setStr:[@[@"+",@"-",@"×"] objectAtIndex:(arc4random()%3)]];
-            }
             [self.view addSubview:tile];
             [allTiles addObject:tile];
         }
     }
+    [self renderLevel];
+
     labelDebug = [[UILabel alloc] initWithFrame:CGRectMake(0, [[allTiles lastObject] frame].origin.y+size+20, self.view.frame.size.width,30)];
     [labelDebug setTextAlignment:NSTextAlignmentCenter];
     [labelDebug setText:@"Hello!"];
     [self.view addSubview:labelDebug];
-
     // Do any additional setup after loading the view.
+}
+
+-(void)initLevel{
+    [[BoardUtils sharedBoardUtils] randomForLevel:level];
+    
+}
+
+-(void)renderLevel{
+    for (GridTile * tile in allTiles) {
+        int tag =[tile tag];
+        NSDictionary *dict = [[BoardUtils sharedBoardUtils] dict];
+        NSString *str = [dict objectForKey:[NSString stringWithFormat:@"%d",tag]];
+        [tile setStr:str];
+    }
 }
 
 -(void)initGame{
     beginX = -1;
     beginY = -1;
-    CGFloat size = ([UIScreen mainScreen].bounds.size.width)/3;
     selectedTiles = [[NSMutableArray alloc] init];
     allTiles = [[NSMutableArray alloc] init];
     currentStr = @"";
@@ -59,11 +69,11 @@
     [labelScore setText:[NSString stringWithFormat:@"%d",score]];
     time = 300;
     [labelTimer setText:[NSString stringWithFormat:@"%02d:%02d",time/60,time%60]];
-
-    
+    [self initLevel];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    if([selectedTiles count]>0)return;
     currentTouch = [touches anyObject];
     for (GridTile * tile in allTiles) {
         CGPoint point = [currentTouch locationInView:self.view];
@@ -112,10 +122,16 @@
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     if( beginX+beginY<0){return;}
+    GridTile *lastTile = [selectedTiles lastObject];
     for (GridTile *tile in allTiles) {
         [tile setSelected:NO];
     }
     [selectedTiles removeAllObjects];
+    if (([lastTile x]+[lastTile y])%2!=0) {
+        currentStr = @"";
+        return;
+    }
+
     beginY = -1;
     beginX = -1;
     NSString *expressionStr= [[currentStr stringByReplacingOccurrencesOfString:@"×" withString:@"*"]stringByReplacingOccurrencesOfString:@"÷" withString:@"/"];
@@ -123,7 +139,6 @@
     int a = ExpressionParser(expression);
     [labelDebug setText:[NSString stringWithFormat:@"%@=%d",currentStr,a]];
     currentStr = @"";
-
 }
 
 

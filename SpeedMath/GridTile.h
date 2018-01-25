@@ -26,4 +26,8 @@
 
 - (id)initWithSize:(CGFloat)size x:(int)x y:(int)y;
 + (int)getTagForX:(int)x andY:(int)y;
++ (int)getXForTag:(int)tag;
++ (int)getYForTag:(int)tag;
+
+
 @end

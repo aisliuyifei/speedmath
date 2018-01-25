@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface BoardUtils : NSObject{
-    NSDictionary *dict;
+    
 }
 +(id)sharedBoardUtils;
+@property(nonatomic,retain)NSDictionary *dict;
+@property(nonatomic,retain)NSArray *array;
 
--(void)randomDictForLevel:(int)level;
+-(void)randomForLevel:(int)level;
+-(NSArray *)allRoutesForNumCount:(int)numCount;
 
 
 
