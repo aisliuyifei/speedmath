@@ -24,6 +24,8 @@
     IBOutlet UILabel *labelLevel;
     int time;
     IBOutlet UILabel *labelTimer;
+    NSMutableDictionary * dictAnswer;
+    UIView *quesView;
 
 }
 

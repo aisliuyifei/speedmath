@@ -33,16 +33,29 @@
             [allTiles addObject:tile];
         }
     }
-    [self renderLevel];
 
     labelDebug = [[UILabel alloc] initWithFrame:CGRectMake(0, [[allTiles lastObject] frame].origin.y+size+20, self.view.frame.size.width,30)];
     [labelDebug setTextAlignment:NSTextAlignmentCenter];
     [labelDebug setText:@"Hello!"];
+    
+    quesView = [[UIView alloc] initWithFrame:CGRectMake(10, labelDebug.frame.origin.y-10, self.view.frame.size.width-20,120)];
+    [quesView setBackgroundColor:[UIColor whiteColor]];
+    quesView.layer.cornerRadius = 10;//设置那个圆角的有多圆
+    quesView.layer.borderWidth = 4;//设置边框的宽度，当然可以不要
+    quesView.layer.borderColor = [[UIColor redColor] CGColor];//设置边框的颜色
+    quesView.layer.masksToBounds = YES;//设为NO去试试
+
+    [self.view addSubview:quesView];
     [self.view addSubview:labelDebug];
+    
+    [self renderLevel];
+
+
     // Do any additional setup after loading the view.
 }
 
 -(void)initLevel{
+    dictAnswer = [[NSMutableDictionary alloc] initWithDictionary:@{@2:@-1,@3:@-1,@4:@-1}];
     [[BoardUtils sharedBoardUtils] randomForLevel:level];
     
 }
@@ -54,6 +67,56 @@
         NSString *str = [dict objectForKey:[NSString stringWithFormat:@"%d",tag]];
         [tile setStr:str];
     }
+    for (UIView *subView in [quesView subviews]) {
+        [subView removeFromSuperview];
+    }
+    
+    for (NSArray *arr in [[BoardUtils sharedBoardUtils] array]) {
+        int numCount = [arr[0] intValue];
+        NSArray *questions = arr[1];
+        if([questions count]>0){
+            int currentQues = [questions[0] intValue];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(quesView.frame.size.width/[[[BoardUtils sharedBoardUtils] array] count]*(numCount-2), 40,quesView.frame.size.width/[[[BoardUtils sharedBoardUtils] array] count] , 40)];
+            [label setTag:1000+numCount];
+            [label setText:[NSString stringWithFormat:@"%d",currentQues]];
+            [label setFont:[UIFont boldSystemFontOfSize:30]];
+            [label setTextAlignment:NSTextAlignmentCenter];
+            [label setBackgroundColor:[UIColor redColor]];
+            [quesView addSubview:label];
+            UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(quesView.frame.size.width/[[[BoardUtils sharedBoardUtils] array] count]*(numCount-2), 80,quesView.frame.size.width/[[[BoardUtils sharedBoardUtils] array] count] , 30)];
+            [label2 setTag:10000+numCount];
+            [label2 setBackgroundColor:[UIColor clearColor]];
+            [label2 setText:[NSString stringWithFormat:@"x%d",numCount]];
+            [label2 setFont:[UIFont systemFontOfSize:20]];
+            [label2 setTextAlignment:NSTextAlignmentCenter];
+            [quesView addSubview:label2];
+        }
+        
+        
+    }
+}
+
+-(BOOL)isLevelDoneWithNumCount:(int)numCount{
+    for (NSArray *arr in [[BoardUtils sharedBoardUtils] array]) {
+        if([arr[0] intValue]==numCount){
+            if ([arr[1] count]==0) {
+                return YES;
+            }
+            if ((2+[[dictAnswer objectForKey:arr[0]] intValue]) < (2+[arr[1] count]-1)) {
+                return NO;
+            }
+        }
+    }
+    return YES;
+}
+
+-(BOOL)isLevelDone{
+    for (int i =2; i<=4; i++) {
+        if (![self isLevelDoneWithNumCount:i]) {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 -(void)initGame{
@@ -62,7 +125,6 @@
     selectedTiles = [[NSMutableArray alloc] init];
     allTiles = [[NSMutableArray alloc] init];
     currentStr = @"";
-  
     level = 1;
     [labelLevel setText:[NSString stringWithFormat:@"Level %d",level]];
     score = 0;
@@ -126,6 +188,7 @@
     for (GridTile *tile in allTiles) {
         [tile setSelected:NO];
     }
+    int numUsed = ([selectedTiles count]+1)/2;
     [selectedTiles removeAllObjects];
     if (([lastTile x]+[lastTile y])%2!=0) {
         currentStr = @"";
@@ -138,9 +201,57 @@
     char *expression = (char*)[expressionStr UTF8String];
     int a = ExpressionParser(expression);
     [labelDebug setText:[NSString stringWithFormat:@"%@=%d",currentStr,a]];
+
+    NSNumber *indexNum = [dictAnswer objectForKey:@(numUsed)];
+    if (indexNum) {
+        NSArray *quesArray = [[BoardUtils sharedBoardUtils] array];
+        for (NSArray *ques in quesArray) {
+            if ([ques[0] intValue]==numUsed){
+                NSArray *questions = ques[1];
+                if ([questions count]>0) {
+                    BOOL test = ((2+[indexNum integerValue]+1) <(2+[questions count]));//WHY？？？？ +2去掉试试就是false
+                    if (test){
+                        int currentValue = [questions[[indexNum intValue]+1] intValue];
+                        if(currentValue==a){
+                            UILabel *label =(UILabel *) [quesView viewWithTag:1000+numUsed];
+                            UILabel *label2 =(UILabel *) [quesView viewWithTag:10000+numUsed];
+                            [label setBackgroundColor:[UIColor greenColor]];
+                            NSLog(@"hahaha corect");
+                            [dictAnswer setObject:@([indexNum intValue]+1) forKey:@(numUsed)];
+                            [self addScore:numUsed*2-1];
+
+                            
+                            if ([self isLevelDoneWithNumCount:numUsed]) {
+                                [label2 setText:@"OK"];
+                                if ([self isLevelDone]) {
+                                    NSLog(@"NextLevel");
+                                    [self nextLevel];
+                                }
+                            }else{
+                                int nextValue = [questions[[indexNum intValue]+2] intValue];
+                                [label setText:[NSString stringWithFormat:@"%d",nextValue]];
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     currentStr = @"";
 }
 
+-(void)nextLevel{
+    level++;
+    [labelLevel setText:[NSString stringWithFormat:@"Level %d",level]];
+    [self initLevel];
+    [self renderLevel];
+}
+
+-(void)addScore:(int)addScore{
+    score+=addScore;
+    [labelScore setText:[NSString stringWithFormat:@"%d",score]];
+}
 
 
 @end

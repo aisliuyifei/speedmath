@@ -121,7 +121,9 @@ static BoardUtils *_sharedBoardUtils = nil;
                 [stepTmpArr addObject:@(a)];
             }
         }
-        [tmpArray addObject:@[@(i),stepTmpArr]];
+        if ([stepTmpArr count]>0) {
+            [tmpArray addObject:@[@(i+2),stepTmpArr]];
+        }
     }
     self.array = [[NSArray alloc] initWithArray:tmpArray];
 }
