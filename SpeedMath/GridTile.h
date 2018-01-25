@@ -25,4 +25,5 @@
 -(BOOL)selected;
 
 - (id)initWithSize:(CGFloat)size x:(int)x y:(int)y;
++ (int)getTagForX:(int)x andY:(int)y;
 @end

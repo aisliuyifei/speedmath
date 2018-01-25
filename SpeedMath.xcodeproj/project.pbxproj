@@ -17,6 +17,7 @@
 		7662EDEC2015E4490082AA57 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7662EDEB2015E4490082AA57 /* GameViewController.m */; };
 		7662EDEF2015F1310082AA57 /* GridTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7662EDEE2015F1310082AA57 /* GridTile.m */; };
 		7662EDF2201717080082AA57 /* ExpressionParser.c in Sources */ = {isa = PBXBuildFile; fileRef = 7662EDF1201717080082AA57 /* ExpressionParser.c */; };
+		76EBA6B1201876A500BD8A5C /* BoardUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EBA6B0201876A500BD8A5C /* BoardUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		7662EDEE2015F1310082AA57 /* GridTile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridTile.m; sourceTree = "<group>"; };
 		7662EDF0201717080082AA57 /* ExpressionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpressionParser.h; sourceTree = "<group>"; };
 		7662EDF1201717080082AA57 /* ExpressionParser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ExpressionParser.c; sourceTree = "<group>"; };
+		76EBA6B0201876A500BD8A5C /* BoardUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoardUtils.m; sourceTree = "<group>"; };
+		76EBA6B22018776400BD8A5C /* BoardUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardUtils.h; sourceTree = "<group>"; };
 		96DB4BB461B4333C78ACEBB6 /* Pods-SpeedMath.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeedMath.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeedMath/Pods-SpeedMath.debug.xcconfig"; sourceTree = "<group>"; };
 		A96EDFE3611035DB61AC3085 /* libPods-SpeedMath.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpeedMath.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -76,6 +79,8 @@
 			children = (
 				7662EDD42015DCE60082AA57 /* AppDelegate.h */,
 				7662EDD52015DCE60082AA57 /* AppDelegate.m */,
+				76EBA6B22018776400BD8A5C /* BoardUtils.h */,
+				76EBA6B0201876A500BD8A5C /* BoardUtils.m */,
 				7662EDD72015DCE60082AA57 /* ViewController.h */,
 				7662EDD82015DCE60082AA57 /* ViewController.m */,
 				7662EDDA2015DCE60082AA57 /* Main.storyboard */,
@@ -241,6 +246,7 @@
 				7662EDE42015DCE60082AA57 /* main.m in Sources */,
 				7662EDEF2015F1310082AA57 /* GridTile.m in Sources */,
 				7662EDD62015DCE60082AA57 /* AppDelegate.m in Sources */,
+				76EBA6B1201876A500BD8A5C /* BoardUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
