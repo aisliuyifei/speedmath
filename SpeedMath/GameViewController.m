@@ -9,7 +9,7 @@
 #import "GameViewController.h"
 #import "GridTile.h"
 #import "BoardUtils.h"
-
+#import "UIView+Toast.h"
 @interface GameViewController ()
 
 @end
@@ -19,12 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initGame];
-
-    //HEADER
     CGFloat gap = 10;
     CGFloat x=10;
     CGFloat y = 120;
     CGFloat size = (([UIScreen mainScreen].bounds.size.width)-2*(gap-2))/3;
+
+    //HEADER
+    [labelScore setFrame:CGRectMake(gap,65+gap,size,35)];
+    [labelLevel setFrame:CGRectMake(gap-2+size, 65+gap,size, 35)];
+    [labelTimer setFrame:CGRectMake(gap-4+2*size, 65+gap,size, 35)];
+
+    //Grids
     for (int i =0; i<3; i++) {
         for (int j=0; j<3; j++) {
             GridTile *tile = [[GridTile alloc] initWithSize:size x:i y:j];
@@ -33,15 +38,14 @@
             [allTiles addObject:tile];
         }
     }
-
+    //quesView
     labelDebug = [[UILabel alloc] initWithFrame:CGRectMake(0, [[allTiles lastObject] frame].origin.y+size+20, self.view.frame.size.width,30)];
     [labelDebug setTextAlignment:NSTextAlignmentCenter];
-    [labelDebug setText:@"Hello!"];
     
     quesView = [[UIView alloc] initWithFrame:CGRectMake(10, labelDebug.frame.origin.y-10, self.view.frame.size.width-20,120)];
     [quesView setBackgroundColor:[UIColor whiteColor]];
-    quesView.layer.cornerRadius = 10;//设置那个圆角的有多圆
-    quesView.layer.borderWidth = 4;//设置边框的宽度，当然可以不要
+    quesView.layer.cornerRadius = 10;//设置圆角有多圆
+    quesView.layer.borderWidth = 4;//设置边框的宽度
     quesView.layer.borderColor = [[UIColor redColor] CGColor];//设置边框的颜色
     quesView.layer.masksToBounds = YES;//设为NO去试试
 
@@ -49,10 +53,20 @@
     [self.view addSubview:labelDebug];
     
     [self renderLevel];
-
-
-    // Do any additional setup after loading the view.
+    [NSTimer scheduledTimerWithTimeInterval:(1) target:self selector:@selector(clockTicking) userInfo:nil repeats:YES];
 }
+
+-(void)clockTicking{
+    if (!paused) {
+        time-=1;
+        if (time>=0) {
+            [labelTimer setText:[NSString stringWithFormat:@"%02d:%02d",time/60,time%60]];
+        }else{
+            [self gameOver];
+        }
+    }
+}
+
 
 -(void)initLevel{
     dictAnswer = [[NSMutableDictionary alloc] initWithDictionary:@{@2:@-1,@3:@-1,@4:@-1}];
@@ -86,13 +100,11 @@
             UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(quesView.frame.size.width/[[[BoardUtils sharedBoardUtils] array] count]*(numCount-2), 80,quesView.frame.size.width/[[[BoardUtils sharedBoardUtils] array] count] , 30)];
             [label2 setTag:10000+numCount];
             [label2 setBackgroundColor:[UIColor clearColor]];
-            [label2 setText:[NSString stringWithFormat:@"x%d",numCount]];
+            [label2 setText:[NSString stringWithFormat:@"n=%d",numCount]];
             [label2 setFont:[UIFont systemFontOfSize:20]];
             [label2 setTextAlignment:NSTextAlignmentCenter];
             [quesView addSubview:label2];
         }
-        
-        
     }
 }
 
@@ -125,17 +137,21 @@
     selectedTiles = [[NSMutableArray alloc] init];
     allTiles = [[NSMutableArray alloc] init];
     currentStr = @"";
-    level = 1;
+    level = 10;
     [labelLevel setText:[NSString stringWithFormat:@"Level %d",level]];
     score = 0;
     [labelScore setText:[NSString stringWithFormat:@"%d",score]];
     time = 300;
     [labelTimer setText:[NSString stringWithFormat:@"%02d:%02d",time/60,time%60]];
+    paused = NO;
     [self initLevel];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     if([selectedTiles count]>0)return;
+    if (paused) {
+        return;
+    }
     currentTouch = [touches anyObject];
     for (GridTile * tile in allTiles) {
         CGPoint point = [currentTouch locationInView:self.view];
@@ -155,6 +171,9 @@
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
     if( beginX+beginY<0){return;}
+    if (paused) {
+        return;
+    }
     for (GridTile * tile in allTiles) {
         CGPoint point = [currentTouch locationInView:self.view];
         if(CGRectContainsPoint(tile.frame,point)){
@@ -183,6 +202,10 @@
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    if (paused) {
+        [self dismissDebugLable:NO];
+        return;
+    }
     if( beginX+beginY<0){return;}
     GridTile *lastTile = [selectedTiles lastObject];
     for (GridTile *tile in allTiles) {
@@ -192,6 +215,7 @@
     [selectedTiles removeAllObjects];
     if (([lastTile x]+[lastTile y])%2!=0) {
         currentStr = @"";
+        [self dismissDebugLable:NO];
         return;
     }
 
@@ -201,35 +225,48 @@
     char *expression = (char*)[expressionStr UTF8String];
     int a = ExpressionParser(expression);
     [labelDebug setText:[NSString stringWithFormat:@"%@=%d",currentStr,a]];
-
+    BOOL isCorrect = NO;
     NSNumber *indexNum = [dictAnswer objectForKey:@(numUsed)];
-    if (indexNum) {
+    if (indexNum!=nil) {
         NSArray *quesArray = [[BoardUtils sharedBoardUtils] array];
         for (NSArray *ques in quesArray) {
             if ([ques[0] intValue]==numUsed){
                 NSArray *questions = ques[1];
                 if ([questions count]>0) {
-                    BOOL test = ((2+[indexNum integerValue]+1) <(2+[questions count]));//WHY？？？？ +2去掉试试就是false
+                    BOOL test = (([indexNum integerValue]+1) <([questions count]));
                     if (test){
                         int currentValue = [questions[[indexNum intValue]+1] intValue];
                         if(currentValue==a){
                             UILabel *label =(UILabel *) [quesView viewWithTag:1000+numUsed];
                             UILabel *label2 =(UILabel *) [quesView viewWithTag:10000+numUsed];
-                            [label setBackgroundColor:[UIColor greenColor]];
+                            isCorrect = YES;
                             NSLog(@"hahaha corect");
                             [dictAnswer setObject:@([indexNum intValue]+1) forKey:@(numUsed)];
                             [self addScore:numUsed*2-1];
 
-                            
                             if ([self isLevelDoneWithNumCount:numUsed]) {
-                                [label2 setText:@"OK"];
+                                [label2 setText:@"🍎"];
+                                [label setBackgroundColor:[UIColor greenColor]];
                                 if ([self isLevelDone]) {
                                     NSLog(@"NextLevel");
                                     [self nextLevel];
                                 }
                             }else{
                                 int nextValue = [questions[[indexNum intValue]+2] intValue];
-                                [label setText:[NSString stringWithFormat:@"%d",nextValue]];
+                                [UIView animateWithDuration:0.3 animations:^(){
+                                    [label setAlpha:0];
+                                } completion:^(BOOL finished){
+                                    if(finished){
+                                        [UIView animateWithDuration:0.3 animations:^(){
+                                        [label setAlpha:1];
+                                        [label setText:[NSString stringWithFormat:@"%d",nextValue]];
+                                        
+                                        }];
+                                        
+                                    }
+
+                                    
+                                }];
                             }
                         }
                     }
@@ -237,15 +274,36 @@
             }
         }
     }
-    
+    [self dismissDebugLable:isCorrect];
+}
+
+-(void)dismissDebugLable:(BOOL)isCorrect{
     currentStr = @"";
+    [UIView animateWithDuration:0.5 animations:^(){
+        if (isCorrect) {
+            [labelDebug setTextColor:[UIColor greenColor]];
+        }else{
+            [labelDebug setTextColor:[UIColor redColor]];
+        }
+        [labelDebug setAlpha:0];
+    } completion:^(BOOL finished){
+        [labelDebug setText:[NSString stringWithFormat:@"%@",currentStr]];
+        [labelDebug setTextColor:[UIColor blackColor]];
+        [labelDebug setAlpha:1];
+    }];
 }
 
 -(void)nextLevel{
     level++;
     [labelLevel setText:[NSString stringWithFormat:@"Level %d",level]];
     [self initLevel];
-    [self renderLevel];
+    [UIView animateWithDuration:0.5 animations:^(){
+        for (UIView *subView in [quesView subviews]) {
+            [subView setAlpha:0];
+        }
+    } completion:^(BOOL finished){
+        [self renderLevel];
+    }];
 }
 
 -(void)addScore:(int)addScore{
@@ -253,5 +311,9 @@
     [labelScore setText:[NSString stringWithFormat:@"%d",score]];
 }
 
+-(void)gameOver{
+    paused = YES;
+    [labelTimer setText:@"OVER"];
+}
 
 @end

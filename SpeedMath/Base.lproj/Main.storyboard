@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-311" y="128"/>
         </scene>
-        <!--View Controller-->
+        <!--趣味速算-->
         <scene sceneID="S90-Kf-puZ">
             <objects>
                 <viewController id="jpA-Yy-mmy" customClass="ViewController" sceneMemberID="viewController">
@@ -35,8 +35,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bl3-rk-MgD">
-                                <rect key="frame" x="171" y="353" width="32" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="122" y="293" width="130" height="81"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="start"/>
                                 <connections>
                                     <segue destination="wK6-iR-Nzz" kind="show" id="Esc-xd-5C3"/>
@@ -46,13 +47,13 @@
                         <color key="backgroundColor" red="0.0" green="0.62081271409988403" blue="0.97350257635116577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="epo-Rf-PLs"/>
                     </view>
-                    <navigationItem key="navigationItem" id="raG-dv-n6d"/>
+                    <navigationItem key="navigationItem" title="趣味速算" id="raG-dv-n6d"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFL-Iv-dRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="575" y="129"/>
+            <point key="canvasLocation" x="573.60000000000002" y="128.18590704647679"/>
         </scene>
-        <!--Game View Controller-->
+        <!--趣味速算-->
         <scene sceneID="seM-4E-eOD">
             <objects>
                 <viewController id="wK6-iR-Nzz" customClass="GameViewController" sceneMemberID="viewController">
@@ -78,10 +79,10 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="level 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9u-kd-kMV">
-                                <rect key="frame" x="131" y="75" width="112" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="level 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p9u-kd-kMV">
+                                <rect key="frame" x="136" y="75" width="120" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" red="1" green="0.99936112990000003" blue="0.9715455476" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -90,7 +91,7 @@
                         <color key="backgroundColor" red="0.0" green="0.62081271409988403" blue="0.97350257635116577" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PJ6-HA-i6J"/>
                     </view>
-                    <navigationItem key="navigationItem" id="UxV-nL-ffx"/>
+                    <navigationItem key="navigationItem" title="趣味速算" id="UxV-nL-ffx"/>
                     <connections>
                         <outlet property="labelLevel" destination="p9u-kd-kMV" id="CRU-IN-gXO"/>
                         <outlet property="labelScore" destination="Ybm-Rl-muh" id="1oS-Hd-Y45"/>

@@ -27,12 +27,15 @@ static BoardUtils *_sharedBoardUtils = nil;
 
 -(void)randomForLevel:(int)level{
     NSMutableDictionary * tmp = [[NSMutableDictionary alloc] init];
+    NSMutableArray *arr =[[NSMutableArray alloc] initWithArray: @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9"]];
     for (int i=0;i<3;i++){
         for (int j=0;j<3;j++){
             int tag = [GridTile getTagForX:i andY:j];
             if ((i+j)%2==0){
                 //数字
-                [tmp setValue:[NSString stringWithFormat:@"%d",(arc4random()%9 )+1] forKey:[NSString stringWithFormat:@"%d",tag]];
+                int randomIndex = arc4random()%[arr count];
+                [tmp setValue:arr[randomIndex] forKey:[NSString stringWithFormat:@"%d",tag]];
+                [arr removeObjectAtIndex:randomIndex];
             }else{
                 //二元操作符
                 if (level < 5){
@@ -65,29 +68,46 @@ static BoardUtils *_sharedBoardUtils = nil;
     }
     self.dict = [[NSDictionary alloc] initWithDictionary:tmp];
     //出题
-    NSArray * r234 =@[@2,@2,@1];
+    NSArray * r234;
     switch (level) {
         case 1:
             r234 = @[@2,@0,@0];
             break;
         case 2:
             r234 = @[@3,@0,@0];
+            break;
+
         case 3:
             r234 = @[@2,@1,@0];
+            break;
+
         case 4:
             r234 = @[@2,@2,@0];
+            break;
+
         case 5:
             r234 = @[@2,@1,@0];
+            break;
+
         case 6:
             r234 = @[@2,@2,@0];
+            break;
+
         case 7:
             r234 = @[@2,@2,@1];
+            break;
+
         case 8:
             r234 = @[@2,@2,@2];
+            break;
+
         case 9:
             r234 = @[@2,@3,@2];
+            break;
+
         default:
             r234 = @[@2,@2,@2];
+            break;
     }
     if(level%11==0){
         r234 = @[@2,@3,@3];
@@ -108,7 +128,9 @@ static BoardUtils *_sharedBoardUtils = nil;
                 expS = [NSString stringWithFormat:@"%@%@",expS,s];
                 
             }
-            char *expression = (char*)[expS UTF8String];
+            NSString *expressionStr= [[expS stringByReplacingOccurrencesOfString:@"×" withString:@"*"]stringByReplacingOccurrencesOfString:@"÷" withString:@"/"];
+
+            char *expression = (char*)[expressionStr UTF8String];
             int a = ExpressionParser(expression);
             BOOL exist = NO;
             for (NSNumber *v in stepTmpArr) {
@@ -116,7 +138,7 @@ static BoardUtils *_sharedBoardUtils = nil;
                     exist = YES;
                 }
             }
-            if(!exist){
+            if((!exist) && a>=0){
                 NSLog(@"%@=%d",expS,a);
                 [stepTmpArr addObject:@(a)];
             }
@@ -170,6 +192,4 @@ static BoardUtils *_sharedBoardUtils = nil;
     }
     return [[NSArray alloc] initWithArray:tmp];
 }
-
-
 @end

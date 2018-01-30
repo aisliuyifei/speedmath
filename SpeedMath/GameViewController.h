@@ -26,6 +26,7 @@
     IBOutlet UILabel *labelTimer;
     NSMutableDictionary * dictAnswer;
     UIView *quesView;
+    BOOL paused;
 
 }
 
